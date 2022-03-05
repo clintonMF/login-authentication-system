@@ -54,22 +54,23 @@ def access():
         profile_dict = dict(zip(usernames,passwords))
         
         # the logic behind the login
-        try:
-            if username in profile_dict[username]:
-                try:
-                    if password != profile_dict[username]:
-                        print('incorrect password or username')
-                        access()
-                    else:
-                        print('login success')
-                        print(f"Hi, {username}!")
-                except:
-                    print('incorrect password or username')
-        except:
-            print("User name does not exist")
+        if username in usernames:
+            try:
+                if password == profile_dict[username]:
+                    print('login success')
+                    print(f"Hi, {username}!")
+                else:
+                    print("incorrect password,")
+                    access()
+            except:
+                print('login error')
+                home()
+        else:
+            print('this username does not exist')
+            home()
     else:
         print('please enter a value')
-            
+
 def home(option = None):
     """The home page function"""
     option = input("Login | signup: ")
