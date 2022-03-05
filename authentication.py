@@ -60,8 +60,8 @@ def access():
                     print('login success')
                     print(f"Hi, {username}!")
                 else:
-                    print("incorrect password,")
-                    access()
+                    print("incorrect password or username")
+                    home()
             except:
                 print('login error')
                 home()
